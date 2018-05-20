@@ -1,3 +1,35 @@
-<p>
-  jedi-form works!
-</p>
+<form [formGroup]="jediFormGroup"
+      (ngSubmit)="submitForm(jediFormGroup)"
+      class="jedi-form">
+
+  <mat-form-field>
+    <input matInput
+           type="text" placeholder="Jedi name"
+           [formControl]="jediFormGroup.get('name')">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Level" [formControl]="jediFormGroup.get('level')">
+      <mat-option *ngFor="let level of jediLevels" [value]="level">
+        {{level.level}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="jediFormGroup.get('level').hasError('required')">Please choose level for your Jedi</mat-error>
+    <mat-hint>{{jediFormGroup.get('level').value?.hint}}</mat-hint>
+  </mat-form-field>
+
+  <mat-radio-group class="saber-radio-group"
+                   [formControl]="jediFormGroup.get('saber')">
+    <mat-radio-button class="saber-radio-button"
+                      *ngFor="let saber of sabers" [value]="saber">
+      {{saber}}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <button mat-raised-button
+          type="submit" color="primary">Submit</button>
+
+  <button mat-button
+          type="reset" color="warn">Reset</button>
+
+</form>

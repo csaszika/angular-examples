@@ -10,3 +10,7 @@
 .mat-drawer-content {
   overflow: hidden;
 }
+
+mat-sidenav-content {
+  height: -webkit-fill-available;
+}
