@@ -13,7 +13,7 @@ const appRoutes: Routes = [
       { path: 'home', component: HomeComponent },
       {
         path: 'reactive-forms',
-        loadChildren: './reactive-forms-examples/reactive-forms-examples.module#ReactiveFormsExamplesModule'
+        loadChildren: './reactive-forms/reactive-forms-examples.module#ReactiveFormsExamplesModule'
       },
       { path: '', pathMatch: 'full', redirectTo: 'home' }
     ]
