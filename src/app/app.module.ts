@@ -10,6 +10,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { HomeComponent } from './main/home/home.component';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 import {ShellComponent} from './main/shell/shell.component';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,8 @@ import {ShellComponent} from './main/shell/shell.component';
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,
+    // Overlay module is needed by ngrx-dashboard module
+    OverlayModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
