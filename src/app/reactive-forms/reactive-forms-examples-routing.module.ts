@@ -9,8 +9,8 @@ const routes: Routes = [
     path: '',
     component: FormsContainerComponent,
     children: [
-      { path: 'jedi-form', component: JediFormComponent},
-      { path: 'sith-form', component: SithFormComponent},
+      { path: 'jedi-form', component: JediFormComponent, data: { state: 'jedi-form' } },
+      { path: 'sith-form', component: SithFormComponent, data: { state: 'sith-form' } },
       { path: '', pathMatch: 'full', redirectTo: 'jedi-form' }
     ]},
 ];

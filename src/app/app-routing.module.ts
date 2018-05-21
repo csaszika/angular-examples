@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     path: '',
     component: ShellComponent,
     children: [
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: HomeComponent, data: { state: 'home' } },
       {
         path: 'reactive-forms',
         loadChildren: './reactive-forms/reactive-forms-examples.module#ReactiveFormsExamplesModule'
