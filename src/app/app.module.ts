@@ -11,6 +11,10 @@ import { HomeComponent } from './main/home/home.component';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 import {ShellComponent} from './main/shell/shell.component';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from './main/ngrx-core/reducers';
+import {StoreDevtoolsModule, StoreDevtoolsOptions} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,14 +28,16 @@ import {OverlayModule} from '@angular/cdk/overlay';
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,
-    // Overlay module is needed by ngrx-dashboard module
+    // Overlay module is needed by dashboard-example module
     OverlayModule,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    !environment.production ? StoreDevtoolsModule.instrument(<StoreDevtoolsOptions>{maxAge: 50}) : [],
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,8 +16,8 @@ const appRoutes: Routes = [
         loadChildren: './reactive-forms/reactive-forms-examples.module#ReactiveFormsExamplesModule'
       },
       {
-        path: 'ngrx-dashboard',
-        loadChildren: './ngrx-dashboard/ngrx-dashboard.module#NgrxDashboardModule'
+        path: 'dashboard-example',
+        loadChildren: './dashboard-example/dashboard-example.module#DashboardExampleModule'
       },
       { path: '', pathMatch: 'full', redirectTo: 'home' }
     ]
