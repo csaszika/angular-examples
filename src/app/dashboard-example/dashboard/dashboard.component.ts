@@ -7,7 +7,7 @@ import {
   selectDevTeamMemberIds,
   selectDevTeamMemberTotal
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
-import {DashboardElement} from '../types/dev-team';
+import {DevTeamMember} from '../types/dev-team';
 
 @Component({
   selector: 'dashboard',
