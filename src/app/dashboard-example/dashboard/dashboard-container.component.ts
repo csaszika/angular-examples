@@ -7,26 +7,25 @@ import {
   selectDevTeamMemberIds,
   selectDevTeamMemberTotal
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
-import {DevTeamMember} from '../types/dev-team';
 
 @Component({
   selector: 'dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  templateUrl: './dashboard-container.component.html',
+  styleUrls: ['./dashboard-container.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardContainerComponent implements OnInit {
 
   cards = [
-    { title: 'Card 1', cols: 1, rows: 2 },
-    { title: 'Card 2', cols: 1, rows: 3 },
-    { title: 'Card 3', cols: 1, rows: 1}
+    {title: 'Dev Team member', cols: 1, rows: 1},
+    {title: 'Dev Team members', cols: 1, rows: 3},
+    {title: 'Dev Graph', cols: 1, rows: 2}
   ];
 
   constructor(private store: Store<DevTeamState>) {}
 
   ngOnInit(): void {
     this.store.select(selectAllDevTeamMembers)
-      .subscribe(x => console.log('all: ' + x));
+      .subscribe(x => console.log('all: ', x));
 
     this.store.select(selectDevTeamMemberTotal)
       .subscribe(x => console.log('total: ' + x));

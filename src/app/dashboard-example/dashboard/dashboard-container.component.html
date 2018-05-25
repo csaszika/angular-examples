@@ -16,7 +16,12 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+
+          <div [ngSwitch]="card.title">
+            <app-dev-team-form *ngSwitchCase="'Dev Team member'"></app-dev-team-form>
+            <app-dev-graph *ngSwitchCase="'Dev Graph'"></app-dev-graph>
+          </div>
+
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

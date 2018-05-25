@@ -73,10 +73,10 @@ export const {
   // select the array of user ids
   selectIds: selectDevTeamMemberIds,
 
-  // select the dictionary of user entities
+  // select the dictionary of user entities -> map<id, object> -> id is defined by adapter selectId attribute
   selectEntities: selectDevTeamMemberEntities,
 
-  // select the array of users
+  // select the array of users -> real array
   selectAll: selectAllDevTeamMembers,
 
   // select the total user count
