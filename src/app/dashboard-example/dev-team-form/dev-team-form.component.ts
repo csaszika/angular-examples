@@ -1,16 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {DevTeamMemberForm} from './dev-team-member.form';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
 import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team';
+import {GenericElementRef} from '../../main/types/generic-element-ref';
 
 @Component({
-  selector: 'app-dev-team-form',
+  selector: 'dev-team-form',
   templateUrl: './dev-team-form.component.html',
   styleUrls: ['./dev-team-form.component.css']
 })
 export class DevTeamFormComponent implements OnInit {
+
+  @ViewChild('devName') devName: GenericElementRef<HTMLInputElement>;
 
   devFormGroup: FormGroup;
 
@@ -30,6 +33,8 @@ export class DevTeamFormComponent implements OnInit {
         teamwork: devFormGroup.controls.teamwork.value
       }
     }));
+    this.devName.nativeElement.focus();
+    this.devFormGroup.reset();
   }
 
 }

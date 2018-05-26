@@ -18,8 +18,9 @@
         <mat-card-content class="dashboard-card-content">
 
           <div [ngSwitch]="card.title">
-            <app-dev-team-form *ngSwitchCase="'Dev Team member'"></app-dev-team-form>
-            <app-dev-graph *ngSwitchCase="'Dev Graph'"></app-dev-graph>
+            <dev-team-form *ngSwitchCase="'Dev Team member'"></dev-team-form>
+            <dev-graph *ngSwitchCase="'Dev Graph'"></dev-graph>
+            <dev-team-table *ngSwitchCase="'Dev Team members'"></dev-team-table>
           </div>
 
         </mat-card-content>

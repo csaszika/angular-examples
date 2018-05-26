@@ -1,0 +1,34 @@
+<div class="mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="frontend">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Frontend</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.frontend}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="backend">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Backend</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.backend}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="teamwork">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Teamwork</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.teamwork}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+                 [length]="dataSource.data.length"
+                 [pageIndex]="0"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 15]">
+  </mat-paginator>
+</div>
