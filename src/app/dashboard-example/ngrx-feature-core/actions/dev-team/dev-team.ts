@@ -31,7 +31,8 @@ export class AddDevTeamMember implements Action {
 export class UpsertDevTeamMember implements Action {
   readonly type = DevTeamMemberActionTypes.UPSERT_DEV_TEAM_MEMBER;
 
-  constructor(public payload: { devTeamMember: Update<DevTeamMember> }) {}
+  constructor(public payload: { devTeamMember: DevTeamMember }) {
+  }
 }
 
 export class AddDevTeamMembers implements Action {
@@ -43,7 +44,8 @@ export class AddDevTeamMembers implements Action {
 export class UpsertDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.UPSERT_DEV_TEAM_MEMBERS;
 
-  constructor(public payload: { devTeamMembers: Update<DevTeamMember>[] }) {}
+  constructor(public payload: { devTeamMembers: DevTeamMember[] }) {
+  }
 }
 
 export class UpdateDevTeamMember implements Action {
