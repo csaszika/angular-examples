@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ShellComponent} from './main/shell/shell.component';
 import {HomeComponent} from './main/home/home.component';
 import {PageNotFoundComponent} from './main/page-not-found/page-not-found.component';
+import {ChangeDetectionModule} from './change-detection/change-detection.module';
 
 
 const appRoutes: Routes = [
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
       {
         path: 'dashboard-example',
         loadChildren: './dashboard-example/dashboard-example.module#DashboardExampleModule'
+      },
+      {
+        path: 'change-detection',
+        loadChildren: './change-detection/change-detection.module#ChangeDetectionModule'
       },
       { path: '', pathMatch: 'full', redirectTo: 'home' }
     ]
