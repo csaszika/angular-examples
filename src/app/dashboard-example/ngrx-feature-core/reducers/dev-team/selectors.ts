@@ -1,6 +1,8 @@
 import {createSelector} from '@ngrx/store';
 import {selectDevTeamState} from '../index';
 import * as dashboard from './dev-team';
+import {DevTeamState} from './dev-team';
+import {DevTeamMember} from '../../../types/dev-team';
 
 export const selectDevTeamMemberIds = createSelector(
   selectDevTeamState,
@@ -20,6 +22,42 @@ export const selectAllDevTeamMembers = createSelector(
 export const selectDevTeamMemberTotal = createSelector(
   selectDevTeamState,
   dashboard.selectDevTeamMemberTotal
+);
+
+export const selectDevTeamFrontendAverage = createSelector(
+  selectDevTeamState,
+  selectAllDevTeamMembers,
+  (state: DevTeamState, members: DevTeamMember[]) => {
+    const acc: number[] = [];
+    for (const member of members) {
+      acc.push(+member.frontend);
+    }
+    return acc.reduce((accumulator, curr) => accumulator + curr, 0) / acc.length;
+  }
+);
+
+export const selectDevTeamBackendAverage = createSelector(
+  selectDevTeamState,
+  selectAllDevTeamMembers,
+  (state: DevTeamState, members: DevTeamMember[]) => {
+    const acc: number[] = [];
+    for (const member of members) {
+      acc.push(+member.backend);
+    }
+    return acc.reduce((accumulator, curr) => accumulator + curr, 0) / acc.length;
+  }
+);
+
+export const selectDevTeamTeamworkAverage = createSelector(
+  selectDevTeamState,
+  selectAllDevTeamMembers,
+  (state: DevTeamState, members: DevTeamMember[]) => {
+    const acc: number[] = [];
+    for (const member of members) {
+      acc.push(+member.teamwork);
+    }
+    return acc.reduce((accumulator, curr) => accumulator + curr, 0) / acc.length;
+  }
 );
 
 // export const selectCurrentDevTeamMemberId = createSelector(
