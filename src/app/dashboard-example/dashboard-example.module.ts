@@ -8,9 +8,12 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatGridListModule,
-  MatIconModule, MatInputModule,
-  MatMenuModule, MatRadioModule,
-  MatSelectModule, MatTableModule, MatPaginatorModule, MatSortModule
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule
 } from '@angular/material';
 import {DASHBOARD_FEATURE_STATE, reducers} from './ngrx-feature-core/reducers';
 import {StoreModule} from '@ngrx/store';
@@ -31,10 +34,10 @@ import {DevTeamTableComponent} from './dev-team-table/dev-team-table.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    StoreModule.forFeature(DASHBOARD_FEATURE_STATE, reducers),
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    StoreModule.forFeature(DASHBOARD_FEATURE_STATE, reducers)
     // EffectsModule.forFeature([])
   ],
   declarations: [

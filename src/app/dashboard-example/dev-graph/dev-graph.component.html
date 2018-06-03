@@ -1,6 +1,10 @@
-<div *ngFor="let developer of devTeamMembers$ | async">
-  <span>{{developer.name}}</span>
-  <span>{{developer.frontend}}</span>
-  <span>{{developer.backend}}</span>
-  <span>{{developer.teamwork}}</span>
-</div>
+<!--<canvas #chart width="800" height="600">-->
+  <!--{{teamChart}}-->
+<!--</canvas>-->
+
+<h2>Frontend average: {{ (devTeamFrontendAverage$ | async) | number:'.2' }}</h2>
+<hr>
+<h2>Backend average: {{ devTeamBackendAverage$ | async | number:'.2' }}</h2>
+<hr>
+<h2>Teamwork average: {{ devTeamTeamworkAverage$ | async | number:'.2' }}</h2>
+<hr>
