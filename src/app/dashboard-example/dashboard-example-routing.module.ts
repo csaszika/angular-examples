@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {DashboardContainerComponent} from './dashboard/dashboard-container.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardContainerComponent, data: {state: 'dashboard-example'}}
+  {path: '', component: DashboardContainerComponent, data: {state: 'ngrx-entity-dashboard-example'}}
 ];
 
 @NgModule({
