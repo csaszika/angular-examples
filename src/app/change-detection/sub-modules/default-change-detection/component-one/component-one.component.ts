@@ -1,13 +1,13 @@
 // tslint:disable:component-selector
 // tslint:disable:component-class-suffix
 
-import {AfterViewChecked, Component, ElementRef, NgZone} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, NgZone, ViewEncapsulation} from '@angular/core';
 import {toggleClass} from '../../../services/toggle-class/toggle-class.service';
 
 @Component({
     selector: 'cmp-one',
     template: `
-        <a>Cmp1</a>
+      <button class="component">Cmp1</button>
 
         <ul>
             <li>

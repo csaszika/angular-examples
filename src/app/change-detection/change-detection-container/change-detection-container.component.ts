@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, ViewChild} from '@angular/core';
+import {AfterViewChecked, Component, OnInit, ViewChild} from '@angular/core';
 import {DefaultChangeDetectionComponent} from '../sub-modules/default-change-detection';
 import {OnPushChangeDetectionComponent} from '../sub-modules/on-push-change-detection';
 import {OnPushChangeDetectionObservablesComponent} from '../sub-modules/on-push-change-detection-observables';
@@ -10,7 +10,7 @@ import {Subject} from 'rxjs/Subject';
   templateUrl: './change-detection-container.component.html',
   styleUrls: ['./change-detection-container.component.css']
 })
-export class ChangeDetectionContainerComponent implements AfterViewChecked {
+export class ChangeDetectionContainerComponent implements AfterViewChecked, OnInit {
 
   @ViewChild(DefaultChangeDetectionComponent) defaultChangeDetectionCmp: DefaultChangeDetectionComponent;
   @ViewChild(OnPushChangeDetectionComponent) onPushChangeDetectionCmp: OnPushChangeDetectionComponent;
@@ -19,7 +19,21 @@ export class ChangeDetectionContainerComponent implements AfterViewChecked {
 
   notifier: Subject<any> = new Subject();
 
-  ngAfterViewChecked() {
+  readonly DEFAULT = 'default';
+  readonly ON_PUSH = 'on push';
+  readonly ON_PUSH_OBSERVABLE = 'on push observable';
+  readonly MANUAL = 'manual';
+  selected: string;
+
+  setSelected(newSelection: string) {
+    this.selected = newSelection;
+  }
+
+  ngOnInit(): void {
+    this.selected = this.DEFAULT;
+  }
+
+  ngAfterViewChecked(): void {
     if (this.defaultChangeDetectionCmp) {
       this.defaultChangeDetectionCmp.notifier = this.notifier;
     }

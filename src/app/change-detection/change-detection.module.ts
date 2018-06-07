@@ -8,6 +8,7 @@ import {ManualChangeDetectionModule} from './sub-modules/manual-change-detection
 import {OnPushChangeDetectionModule} from './sub-modules/on-push-change-detection';
 import {OnPushChangeDetectionObservablesModule} from './sub-modules/on-push-change-detection-observables';
 import {ToggleStateService} from './services/toggle-state/toggle-state.service';
+import {MatChipsModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {ToggleStateService} from './services/toggle-state/toggle-state.service';
     DefaultChangeDetectionModule,
     ManualChangeDetectionModule,
     OnPushChangeDetectionModule,
-    OnPushChangeDetectionObservablesModule
+    OnPushChangeDetectionObservablesModule,
+    MatChipsModule,
   ],
   declarations: [ChangeDetectionContainerComponent],
   providers: [

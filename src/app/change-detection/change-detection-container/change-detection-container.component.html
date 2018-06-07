@@ -1,11 +1,23 @@
-<h1>Angular 2 Change Detection Demos</h1>
-<p>Pick one of the following:</p>
-<div class="site-nav">
-  <a [routerLink]="['default-change-detection']">Default Change Detection</a>
-  <a [routerLink]="['on-push-change-detection']">OnPush Change Detection</a>
-  <a [routerLink]="['on-push-change-detection-observables']">OnPush Change Detection (Observables)</a>
-  <a [routerLink]="['manual-change-detection']">Manual Change Detection</a>
-</div>
+
+<mat-chip-list>
+  <mat-chip color="primary"
+            [selected]="selected === DEFAULT"
+            (click)="setSelected(DEFAULT)"
+            [routerLink]="['default-change-detection']">Default Change Detection</mat-chip>
+  <mat-chip color="primary"
+            [selected]="selected === ON_PUSH"
+            (click)="setSelected(ON_PUSH)"
+            [routerLink]="['on-push-change-detection']">OnPush Change Detection</mat-chip>
+  <mat-chip color="primary"
+            [selected]="selected === ON_PUSH_OBSERVABLE"
+            (click)="setSelected(ON_PUSH_OBSERVABLE)"
+            [routerLink]="['on-push-change-detection-observables']">OnPush Change Detection (Observables)</mat-chip>
+  <mat-chip color="primary"
+            [selected]="selected === MANUAL"
+            (click)="setSelected(MANUAL)"
+            [routerLink]="['manual-change-detection']">Manual Change Detection</mat-chip>
+</mat-chip-list>
+
 <div>
   <router-outlet></router-outlet>
 </div>

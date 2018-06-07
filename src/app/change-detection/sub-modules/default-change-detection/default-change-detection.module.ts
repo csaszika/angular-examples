@@ -7,6 +7,7 @@ import {ComponentFour} from './component-four';
 import {ComponentFive} from './component-five';
 import {ComponentSix} from './component-six';
 import {ComponentSeven} from './component-seven';
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,10 @@ import {ComponentSeven} from './component-seven';
         ComponentFive,
         ComponentSix,
         ComponentSeven
-    ]
+    ],
+  imports:[
+    MatButtonModule
+  ]
 })
 export class DefaultChangeDetectionModule {
 

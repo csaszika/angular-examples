@@ -1,6 +1,7 @@
-<h2>Default Change Detection</h2>
-<p>This demo shows how change detection is performed for each
-    component after every VM turn. <br>All components should light up when:</p>
+<p class="cd-description">This demo shows how change detection is performed for each
+    component after every VM turn.
+  <br>All components should light up when:
+</p>
 
 
 <ol class="list">
@@ -9,13 +10,10 @@
 </ol>
 
 <div>
-    <button (click)="null">Trigger Change Detection</button>
+    <button mat-raised-button color="warn"
+            class="trigger-cd-button"
+            (click)="null">Trigger Change Detection</button>
 </div>
-<div class="tree">
-    <ul>
-        <li>
-            <cmp-one></cmp-one>
-        </li>
-    </ul>
-</div>
-<div style="margin-bottom: 5em; clear: both;"></div>
+
+<cmp-one class="component-button"></cmp-one>
+

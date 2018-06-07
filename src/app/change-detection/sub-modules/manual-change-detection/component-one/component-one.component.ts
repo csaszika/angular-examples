@@ -8,7 +8,7 @@ import {toggleClass} from '../../../services/toggle-class/toggle-class.service';
 @Component({
     selector: 'cmp-one',
     template: `
-        <a>Cmp1</a>
+        <button mat-raised-button color="accent">Cmp1</button>
 
         <ul>
             <li>
