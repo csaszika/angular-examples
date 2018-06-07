@@ -12,5 +12,9 @@
 }
 
 mat-sidenav-content {
-  height: stretch;
+  height: 100%;
+}
+
+.router-outlet-content {
+  height: 100%;
 }

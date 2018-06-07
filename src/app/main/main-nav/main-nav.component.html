@@ -26,9 +26,12 @@
       <span>Angular examples</span>
     </mat-toolbar>
 
-    <div [@routerTransition]="detectRoutingState(outlet)">
+    <div class="router-outlet-content" [@routerTransition]="detectRoutingState(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
+    <!--<div class="router-outlet-content">-->
+      <!--<router-outlet #outlet="outlet"></router-outlet>-->
+    <!--</div>-->
 
   </mat-sidenav-content>
 </mat-sidenav-container>

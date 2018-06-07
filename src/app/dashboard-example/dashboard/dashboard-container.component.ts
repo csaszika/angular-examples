@@ -7,11 +7,13 @@ import {
   selectDevTeamMemberIds,
   selectDevTeamMemberTotal
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
+import {dashboardItemsAnim} from '../../main/animations/list.animations';
 
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard-container.component.html',
-  styleUrls: ['./dashboard-container.component.css']
+  styleUrls: ['./dashboard-container.component.css'],
+  animations: [dashboardItemsAnim]
 })
 export class DashboardContainerComponent implements OnInit {
 
@@ -24,18 +26,21 @@ export class DashboardContainerComponent implements OnInit {
   constructor(private store: Store<DevTeamState>) {}
 
   ngOnInit(): void {
-    this.store.select(selectAllDevTeamMembers)
-      .subscribe(x => console.log('all: ', x));
-
-    this.store.select(selectDevTeamMemberTotal)
-      .subscribe(x => console.log('total: ' + x));
-
-    this.store.select(selectDevTeamMemberIds)
-      .subscribe(x => console.log('ids: ' + x));
-
-    this.store.select(selectDevTeamMemberEntities)
-      .subscribe(x => console.log('entities: ', x));
+    // this.store.select(selectAllDevTeamMembers)
+    //   .subscribe(x => console.log('all: ', x));
+    //
+    // this.store.select(selectDevTeamMemberTotal)
+    //   .subscribe(x => console.log('total: ' + x));
+    //
+    // this.store.select(selectDevTeamMemberIds)
+    //   .subscribe(x => console.log('ids: ' + x));
+    //
+    // this.store.select(selectDevTeamMemberEntities)
+    //   .subscribe(x => console.log('entities: ', x));
   }
 
 
+  onAnimStart() {
+    console.log('start');
+  }
 }
