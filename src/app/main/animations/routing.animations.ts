@@ -13,7 +13,9 @@ export const routerTransition = trigger('routerTransition', [
         animate('0.4s ease-in-out',
           style({ transform: 'translateX(0%)' })),
 
-        query('@dashboardItemsAnim', [animateChild()], {optional: true})
+        query('@dashboardItemsAnim', [animateChild()], {optional: true}),
+        query('@datatableRowsAnim', [animateChild()], {optional: true})
+        // query('@*', [animateChild()], {optional: true}) --> visual bugs with material components
       ], { optional: true }),
 
       query(':leave', [

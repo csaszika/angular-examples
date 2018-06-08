@@ -1,4 +1,4 @@
-<div class="grid-container"  [@dashboardItemsAnim]="" (@dashboardItemsAnim.done)="onAnimStart()">
+<div class="grid-container"  [@dashboardItemsAnim]="">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="17rem">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">

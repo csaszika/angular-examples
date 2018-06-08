@@ -4,11 +4,13 @@ import {DevTeamTableDataSource} from './dev-team-table-datasource';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
 import {selectAllDevTeamMembers} from '../ngrx-feature-core/reducers/dev-team/selectors';
+import {datatableRowsAnim} from '../../main/animations/list.animations';
 
 @Component({
   selector: 'dev-team-table',
   templateUrl: './dev-team-table.component.html',
-  styleUrls: ['./dev-team-table.component.css']
+  styleUrls: ['./dev-team-table.component.css'],
+  animations: [datatableRowsAnim]
 })
 export class DevTeamTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
