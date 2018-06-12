@@ -33,6 +33,7 @@
   </mat-table>
 
   <mat-paginator #paginator
+                 (page)="onPageEvent($event)"
                  [length]="dataSource.data.length"
                  [pageIndex]="0"
                  [pageSize]="10"

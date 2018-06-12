@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort} from '@angular/material';
+import {MatPaginator, MatSort, PageEvent} from '@angular/material';
 import {DevTeamTableDataSource} from './dev-team-table-datasource';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
@@ -34,5 +34,9 @@ export class DevTeamTableComponent implements OnInit {
       this.dataSource = new DevTeamTableDataSource(this.paginator, this.sort, members);
     });
 
+  }
+
+  onPageEvent(event: PageEvent) {
+    console.log(event);
   }
 }
