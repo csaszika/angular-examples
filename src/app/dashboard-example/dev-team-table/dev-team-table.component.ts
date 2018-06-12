@@ -5,6 +5,7 @@ import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
 import {selectAllDevTeamMembers} from '../ngrx-feature-core/reducers/dev-team/selectors';
 import {datatableRowsAnim} from '../../main/animations/list.animations';
+import {DevTeamMember} from '../types/dev-team';
 
 @Component({
   selector: 'dev-team-table',
@@ -18,15 +19,20 @@ export class DevTeamTableComponent implements OnInit {
   dataSource: DevTeamTableDataSource;
 
   displayedColumns = ['name', 'frontend', 'backend', 'teamwork'];
+  columnToTitle: Map<string, string> = new Map<string, string>()
+    .set('name', 'Name')
+    .set('frontend', 'Frontend')
+    .set('backend', 'Backend')
+    .set('teamwork', 'Teamwork');
 
   constructor(private store: Store<DevTeamState>) {
-
   }
 
   ngOnInit() {
     this.dataSource = new DevTeamTableDataSource(this.paginator, this.sort, []);
-    this.store.select(selectAllDevTeamMembers).subscribe(members => {
+    this.store.select(selectAllDevTeamMembers).subscribe((members: DevTeamMember[]) => {
       this.dataSource = new DevTeamTableDataSource(this.paginator, this.sort, members);
     });
+
   }
 }
