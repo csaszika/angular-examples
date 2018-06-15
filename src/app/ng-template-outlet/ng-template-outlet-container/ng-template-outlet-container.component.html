@@ -1,0 +1,47 @@
+<button mat-raised-button (click)="changeTemplate()">Change</button>
+<div class="ng-template-outlet-container">
+
+  <div *ngFor="let hero of heroes">
+
+    <hero-card [cardTemplate]="mode === 'up' ? up : down"
+               [hero]="hero"></hero-card>
+
+  </div>
+
+</div>
+
+<ng-template #up let-hero="hero">
+  <mat-card>
+    <mat-card-header class="hero-card-header">
+      <mat-card-title>
+        <h1>{{hero.name}}</h1>
+      </mat-card-title>
+    </mat-card-header>
+
+    <img mat-card-image [src]="hero.logo">
+
+    <mat-card-content class="ability-section">
+      <div class="ability">
+        <h3>POW</h3>
+        <h3>
+          {{hero.power}}
+        </h3>
+      </div>
+      <div class="ability">
+        <h3>INT</h3>
+        <h3>
+          {{hero.intelligence}}
+        </h3>
+      </div>
+      <div class="ability">
+        <h3>REF</h3>
+        <h3>
+          {{hero.reflex}}
+        </h3>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-template>
+<ng-template #down>
+  <h1>down</h1>
+</ng-template>

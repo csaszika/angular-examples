@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ShellComponent} from './main/shell/shell.component';
-import {HomeComponent} from './main/home/home.component';
-import {PageNotFoundComponent} from './main/page-not-found/page-not-found.component';
+import {ShellComponent} from './app-main/shell/shell.component';
+import {HomeComponent} from './app-main/home/home.component';
+import {PageNotFoundComponent} from './app-main/page-not-found/page-not-found.component';
 
 
 const appRoutes: Routes = [
@@ -18,6 +18,10 @@ const appRoutes: Routes = [
       {
         path: 'dashboard-example',
         loadChildren: './dashboard-example/dashboard-example.module#DashboardExampleModule'
+      },
+      {
+        path: 'ng-template-outlet',
+        loadChildren: './ng-template-outlet/ng-template-outlet.module#NgTemplateOutletModule'
       },
       { path: '', pathMatch: 'full', redirectTo: 'home' }
     ]

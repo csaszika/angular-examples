@@ -4,7 +4,7 @@ import {DevTeamMemberForm} from './dev-team-member.form';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
 import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team';
-import {GenericElementRef} from '../../main/types/generic-element-ref';
+import {GenericElementRef} from '../../app-main/types/generic-element-ref';
 
 @Component({
   selector: 'dev-team-form',

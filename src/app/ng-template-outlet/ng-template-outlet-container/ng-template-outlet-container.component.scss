@@ -1,0 +1,49 @@
+@media screen and (min-width: 40em) {
+
+  .ng-template-outlet-container {
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+}
+
+.ability-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ability {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.hero-card-header {
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  font-family: 'Zorque', serif;
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+mat-card-content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+img {
+  display: block;
+  margin: 1rem auto;
+  max-width: 12rem;
+  min-width: 12rem;
+  text-align: center;
+  border-radius: 100%;
+}
+

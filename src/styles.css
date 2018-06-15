@@ -5,3 +5,8 @@ html, body {
   height: 100%;
   margin: 0;
 }
+
+@font-face {
+  font-family: 'Zorque';
+  src: url('./assets/fonts/zorque.ttf') format('truetype');
+}

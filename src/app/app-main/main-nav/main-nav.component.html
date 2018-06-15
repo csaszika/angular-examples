@@ -11,6 +11,7 @@
       <a mat-list-item [routerLink]="['/home']">Home</a>
       <a mat-list-item [routerLink]="['/reactive-forms']">Reactive forms</a>
       <a mat-list-item [routerLink]="['/dashboard-example']">Ngrx entity dashboard</a>
+      <a mat-list-item [routerLink]="['/ng-template-outlet']">NgTemplateOutlet</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -29,9 +30,6 @@
     <div class="router-outlet-content" [@routerTransition]="detectRoutingState(outlet)">
       <router-outlet #outlet="outlet"></router-outlet>
     </div>
-    <!--<div class="router-outlet-content">-->
-      <!--<router-outlet #outlet="outlet"></router-outlet>-->
-    <!--</div>-->
 
   </mat-sidenav-content>
 </mat-sidenav-container>

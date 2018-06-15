@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {DashboardExampleRoutingModule} from './dashboard-example-routing.module';
-import {DashboardContainerComponent} from './dashboard/dashboard-container.component';
+import {DashboardContainerComponent} from './dashboard-container/dashboard-container.component';
 import {
   MatButtonModule,
   MatCardModule,
