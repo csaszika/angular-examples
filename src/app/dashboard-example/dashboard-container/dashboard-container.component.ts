@@ -12,7 +12,7 @@ import {dashboardItemsAnim} from '../../app-main/animations/list.animations';
 @Component({
   selector: 'dashboard',
   templateUrl: './dashboard-container.component.html',
-  styleUrls: ['./dashboard-container.component.css'],
+  styleUrls: ['./dashboard-container.component.scss'],
   animations: [dashboardItemsAnim]
 })
 export class DashboardContainerComponent implements OnInit {

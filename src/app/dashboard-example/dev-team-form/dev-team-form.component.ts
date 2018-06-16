@@ -9,7 +9,7 @@ import {GenericElementRef} from '../../app-main/types/generic-element-ref';
 @Component({
   selector: 'dev-team-form',
   templateUrl: './dev-team-form.component.html',
-  styleUrls: ['./dev-team-form.component.css']
+  styleUrls: ['./dev-team-form.component.scss']
 })
 export class DevTeamFormComponent implements OnInit {
 

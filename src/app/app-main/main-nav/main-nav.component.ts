@@ -7,7 +7,7 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'main-nav',
   templateUrl: './main-nav.component.html',
-  styleUrls: ['./main-nav.component.css'],
+  styleUrls: ['./main-nav.component.scss'],
   animations: [routerTransition]
 })
 export class MainNavComponent {

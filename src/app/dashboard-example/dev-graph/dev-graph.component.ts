@@ -14,7 +14,7 @@ import {
 @Component({
   selector: 'dev-graph',
   templateUrl: './dev-graph.component.html',
-  styleUrls: ['./dev-graph.component.css'],
+  styleUrls: ['./dev-graph.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DevGraphComponent implements OnInit {

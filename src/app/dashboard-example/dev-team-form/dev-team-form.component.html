@@ -1,57 +1,59 @@
 <form [formGroup]="devFormGroup"
-      (ngSubmit)="submitForm(devFormGroup)"
-      class="dev-team-form">
+      (ngSubmit)="submitForm(devFormGroup)">
 
-  <mat-form-field>
-    <input #devName
-           matInput type="text"
-           placeholder="Dev name"
-           [formControl]="devFormGroup.get('name')"
-           autocomplete="off">
-    <mat-error *ngIf="devFormGroup.get('name').hasError('required') && devFormGroup.get('name').touched">Developer name
-      is required
-    </mat-error>
-  </mat-form-field>
+  <div class="dev-team-form-inputs">
+    <mat-form-field>
+      <input #devName
+             matInput type="text"
+             placeholder="Dev name"
+             [formControl]="devFormGroup.get('name')"
+             autocomplete="off">
+      <mat-error *ngIf="devFormGroup.get('name').hasError('required') && devFormGroup.get('name').touched">Developer name
+        is required
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Frontend"
-           [formControl]="devFormGroup.get('frontend')"
-           autocomplete="off">
-    <mat-error *ngIf="devFormGroup.get('frontend').hasError('required') && devFormGroup.get('frontend').touched">
-      Frontend skill is required
-    </mat-error>
-    <mat-error *ngIf="(devFormGroup.get('frontend').hasError('max') ||
+    <mat-form-field>
+      <input matInput placeholder="Frontend"
+             [formControl]="devFormGroup.get('frontend')"
+             autocomplete="off">
+      <mat-error *ngIf="devFormGroup.get('frontend').hasError('required') && devFormGroup.get('frontend').touched">
+        Frontend skill is required
+      </mat-error>
+      <mat-error *ngIf="(devFormGroup.get('frontend').hasError('max') ||
                        devFormGroup.get('frontend').hasError('pattern'))
                        && devFormGroup.get('frontend').touched">Value must be between 0 and 10
-    </mat-error>
-    <mat-hint *ngIf="devFormGroup.get('frontend').value > 7">Awesome</mat-hint>
-  </mat-form-field>
+      </mat-error>
+      <mat-hint *ngIf="devFormGroup.get('frontend').value > 7">Awesome</mat-hint>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Backend"
-           [formControl]="devFormGroup.get('backend')"
-           autocomplete="off">
-    <mat-error *ngIf="devFormGroup.get('backend').hasError('required') && devFormGroup.get('backend').touched">Backend
-      skill is required
-    </mat-error>
-    <mat-error *ngIf="(devFormGroup.get('backend').hasError('max') ||
+    <mat-form-field>
+      <input matInput placeholder="Backend"
+             [formControl]="devFormGroup.get('backend')"
+             autocomplete="off">
+      <mat-error *ngIf="devFormGroup.get('backend').hasError('required') && devFormGroup.get('backend').touched">Backend
+        skill is required
+      </mat-error>
+      <mat-error *ngIf="(devFormGroup.get('backend').hasError('max') ||
                        devFormGroup.get('backend').hasError('pattern'))
                        && devFormGroup.get('backend').touched">Value must be between 0 and 10
-    </mat-error>
-  </mat-form-field>
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Teamwork"
-           [formControl]="devFormGroup.get('teamwork')"
-           autocomplete="off">
-    <mat-error *ngIf="devFormGroup.get('teamwork').hasError('required') && devFormGroup.get('teamwork').touched">
-      Teamwork skill is required
-    </mat-error>
-    <mat-error *ngIf="(devFormGroup.get('teamwork').hasError('max') ||
+    <mat-form-field>
+      <input matInput placeholder="Teamwork"
+             [formControl]="devFormGroup.get('teamwork')"
+             autocomplete="off">
+      <mat-error *ngIf="devFormGroup.get('teamwork').hasError('required') && devFormGroup.get('teamwork').touched">
+        Teamwork skill is required
+      </mat-error>
+      <mat-error *ngIf="(devFormGroup.get('teamwork').hasError('max') ||
                        devFormGroup.get('teamwork').hasError('pattern'))
                        && devFormGroup.get('teamwork').touched">Value must be between 0 and 10
-    </mat-error>
-  </mat-form-field>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
 
   <button mat-raised-button [disabled]="devFormGroup.invalid"
           type="submit" color="primary">Submit

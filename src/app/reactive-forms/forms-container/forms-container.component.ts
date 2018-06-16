@@ -3,7 +3,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 @Component({
   selector: 'app-forms-container',
   templateUrl: './forms-container.component.html',
-  styleUrls: ['./forms-container.component.css']
+  styleUrls: ['./forms-container.component.scss']
 })
 export class FormsContainerComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import {JediLevelSelect} from '../types/jedi.interfaces';
 @Component({
   selector: 'jedi-form',
   templateUrl: './jedi-form.component.html',
-  styleUrls: ['./jedi-form.component.css']
+  styleUrls: ['./jedi-form.component.scss']
 })
 export class JediFormComponent implements OnInit {
 

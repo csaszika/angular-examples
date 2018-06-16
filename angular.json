@@ -27,7 +27,7 @@
                 "input": "node_modules/@angular/material/prebuilt-themes/purple-green.css"
               },
               "src/app-loading.scss",
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/chart.js/dist/Chart.js"
@@ -127,5 +127,10 @@
       }
     }
   },
-  "defaultProject": "angular-examples"
+  "defaultProject": "angular-examples",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }

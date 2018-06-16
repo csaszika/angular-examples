@@ -10,7 +10,7 @@ import {DevTeamMember} from '../types/dev-team';
 @Component({
   selector: 'dev-team-table',
   templateUrl: './dev-team-table.component.html',
-  styleUrls: ['./dev-team-table.component.css'],
+  styleUrls: ['./dev-team-table.component.scss'],
   animations: [datatableRowsAnim]
 })
 export class DevTeamTableComponent implements OnInit {
