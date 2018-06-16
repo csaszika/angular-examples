@@ -1,0 +1,12 @@
+@media screen and (min-width: 40em) {
+
+  .ng-template-outlet-container {
+    height: 85%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row wrap;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+}

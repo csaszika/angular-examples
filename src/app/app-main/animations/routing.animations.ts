@@ -21,7 +21,7 @@ export const routerTransition = trigger('routerTransition', [
       query(':leave', [
         style({ transform: 'translateX(0%)' }),
         animate('0.4s ease-in-out',
-          style({ transform: 'translateX(-90%)' }))
+          style({ transform: 'translateX(-100%)' }))
       ], { optional: true }),
     ])
   ])

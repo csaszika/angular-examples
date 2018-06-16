@@ -4,7 +4,8 @@ import {Hero} from '../types/hero';
 @Component({
   selector: 'app-ng-template-outlet-container',
   templateUrl: './ng-template-outlet-container.component.html',
-  styleUrls: ['./full-template.scss',
+  styleUrls: ['./ng-template-outlet-container.component.scss',
+              './full-template.scss',
               './summary-template.scss',
               './image-size.scss']
 })
