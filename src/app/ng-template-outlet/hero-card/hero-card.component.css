@@ -6,8 +6,7 @@
 @media screen and (min-width: 40em) {
 
   .hero-card {
-    min-width: 21rem;
-    max-width: 22rem;
+    width: 22rem;
     flex: 0 1 calc(50% - 1em);
   }
 }
@@ -15,9 +14,13 @@
 @media screen and (min-width: 60em) {
 
   .hero-card {
-    min-width: 21rem;
-    max-width: 22rem;
+    width: 22rem;
     flex: 0 1 calc(25% - 1em);
   }
+}
+
+mat-card {
+  font-family: 'Zorque', serif;
+  margin: 1rem 1rem 1rem 1rem;
 }
 

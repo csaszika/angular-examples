@@ -3,45 +3,64 @@
 
   <div *ngFor="let hero of heroes">
 
-    <hero-card [cardTemplate]="mode === 'up' ? up : down"
+    <hero-card [cardTemplate]="mode === 'full' ? full : summary"
                [hero]="hero"></hero-card>
 
   </div>
 
 </div>
 
-<ng-template #up let-hero="hero">
-  <mat-card>
-    <mat-card-header class="hero-card-header">
+<ng-template #full let-hero="hero">
+    <mat-card-header class="hero-card-header-full">
       <mat-card-title>
         <h1>{{hero.name}}</h1>
       </mat-card-title>
     </mat-card-header>
 
-    <img mat-card-image [src]="hero.logo">
+    <img mat-card-image
+         class="full-image"
+         [src]="hero.logo">
 
     <mat-card-content class="ability-section">
       <div class="ability">
-        <h3>POW</h3>
-        <h3>
+        <h2>POW</h2>
+        <h2>
           {{hero.power}}
-        </h3>
+        </h2>
       </div>
       <div class="ability">
-        <h3>INT</h3>
-        <h3>
+        <h2>INT</h2>
+        <h2>
           {{hero.intelligence}}
-        </h3>
+        </h2>
       </div>
       <div class="ability">
-        <h3>REF</h3>
-        <h3>
+        <h2>REF</h2>
+        <h2>
           {{hero.reflex}}
-        </h3>
+        </h2>
       </div>
     </mat-card-content>
-  </mat-card>
 </ng-template>
-<ng-template #down>
-  <h1>down</h1>
+<ng-template #summary let-hero="hero">
+
+    <mat-card-header class="hero-card-header-summary">
+      <mat-card-title>
+        <h1>Summary</h1>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="content-summary">
+      {{hero | heroSummary | number: '.1-1'}}
+    </mat-card-content>
+
+    <img mat-card-image
+         class="medium-image"
+         [src]="hero.logo">
+
+    <mat-card-footer class="hero-card-header-summary">
+      <mat-card-title>
+        <h5>{{hero.name}}</h5>
+      </mat-card-title>
+    </mat-card-footer>
 </ng-template>

@@ -1,0 +1,26 @@
+.full-image {
+  display: block;
+  margin: 1rem auto;
+  max-width: 12rem;
+  min-width: 12rem;
+  text-align: center;
+  border-radius: 100%;
+}
+
+.medium-image {
+  display: block;
+  margin: 1rem auto;
+  max-width: 7rem;
+  min-width: 7rem;
+  text-align: center;
+  border-radius: 100%;
+}
+
+.small-image {
+  display: block;
+  margin: 1rem auto;
+  max-width: 3rem;
+  min-width: 3rem;
+  text-align: center;
+  border-radius: 100%;
+}

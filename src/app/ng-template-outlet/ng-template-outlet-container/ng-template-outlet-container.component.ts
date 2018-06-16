@@ -4,12 +4,14 @@ import {Hero} from '../types/hero';
 @Component({
   selector: 'app-ng-template-outlet-container',
   templateUrl: './ng-template-outlet-container.component.html',
-  styleUrls: ['./ng-template-outlet-container.component.scss']
+  styleUrls: ['./full-template.scss',
+              './summary-template.scss',
+              './image-size.scss']
 })
 export class NgTemplateOutletContainerComponent implements OnInit {
 
   // can be an @Input
-  mode: 'up' | 'down' = 'up';
+  mode: 'full' | 'summary' = 'summary';
   heroes: Hero[] = [
     {name: 'captain america', intelligence: 4, power: 6, reflex: 7, logo: 'assets/captain_america.svg'},
     {name: 'green lantern', intelligence: 5, power: 7, reflex: 7, logo: 'assets/green_lantern.png'},
@@ -28,6 +30,6 @@ export class NgTemplateOutletContainerComponent implements OnInit {
   }
 
   changeTemplate() {
-    this.mode = this.mode === 'up' ? 'down': 'up';
+    this.mode = this.mode === 'full' ? 'summary': 'full';
   }
 }
