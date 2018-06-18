@@ -1,6 +1,9 @@
 <div class="mat-elevation-z8">
   <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements" [@datatableRowsAnim]="">
 
+    <!-- Cannot be a separate component because if I bind [matColumnDef]="'select'"
+         then I get error message that 'select' column does not exist. If I use
+         matColumnDef="select" then I get error message that I do not specify a header-cell for the column-->
     <ng-container matColumnDef="select">
       <mat-header-cell *matHeaderCellDef>
         <mat-checkbox (change)="$event ? masterToggle() : null"
