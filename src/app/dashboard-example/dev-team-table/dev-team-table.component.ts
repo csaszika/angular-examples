@@ -6,6 +6,7 @@ import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
 import {selectAllDevTeamMembers} from '../ngrx-feature-core/reducers/dev-team/selectors';
 import {datatableRowsAnim} from '../../app-main/animations/list.animations';
 import {DevTeamMember} from '../types/dev-team';
+import {SelectionModel} from '@angular/cdk/collections';
 
 @Component({
   selector: 'dev-team-table',
@@ -18,12 +19,9 @@ export class DevTeamTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: DevTeamTableDataSource;
 
-  displayedColumns = ['name', 'frontend', 'backend', 'teamwork'];
-  columnToTitle: Map<string, string> = new Map<string, string>()
-    .set('name', 'Name')
-    .set('frontend', 'Frontend')
-    .set('backend', 'Backend')
-    .set('teamwork', 'Teamwork');
+  displayedColumns = ['select', 'name', 'frontend', 'backend', 'teamwork'];
+
+  selection: SelectionModel<DevTeamMember>;
 
   constructor(private store: Store<DevTeamState>) {
   }
@@ -34,6 +32,20 @@ export class DevTeamTableComponent implements OnInit {
       this.dataSource = new DevTeamTableDataSource(this.paginator, this.sort, members);
     });
 
+    const initialSelection = [];
+    const allowMultiSelect = true;
+    this.selection = new SelectionModel<DevTeamMember>(allowMultiSelect, initialSelection);
+
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  masterToggle() {
+    this.isAllSelected() ? this.selection.clear() : this.dataSource.data.forEach(row => this.selection.select(row));
   }
 
   onPageEvent(event: PageEvent) {

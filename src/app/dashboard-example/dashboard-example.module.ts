@@ -5,7 +5,7 @@ import {DashboardExampleRoutingModule} from './dashboard-example-routing.module'
 import {DashboardContainerComponent} from './dashboard-container/dashboard-container.component';
 import {
   MatButtonModule,
-  MatCardModule,
+  MatCardModule, MatCheckboxModule,
   MatFormFieldModule,
   MatGridListModule,
   MatIconModule,
@@ -37,6 +37,7 @@ import {DevTeamTableComponent} from './dev-team-table/dev-team-table.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatCheckboxModule,
     StoreModule.forFeature(DASHBOARD_FEATURE_STATE, reducers)
     // EffectsModule.forFeature([])
   ],
