@@ -1,14 +1,14 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
-import {Observable} from 'rxjs/Observable';
-import {map, scan} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 import {DevTeamMember} from '../types/dev-team';
 import {
-  selectAllDevTeamMembers,
   selectDevTeamBackendAverage,
-  selectDevTeamFrontendAverage, selectDevTeamTeamworkAverage
+  selectDevTeamFrontendAverage,
+  selectDevTeamTeamworkAverage
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
+
 // import { Chart } from 'chart.js';
 
 @Component({
