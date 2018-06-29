@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "angular-examples-library": {
+      "root": "projects/angular-examples-library",
+      "sourceRoot": "projects/angular-examples-library/src",
+      "projectType": "library",
+      "prefix": "ael",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-examples-library/tsconfig.lib.json",
+            "project": "projects/angular-examples-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/angular-examples-library/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-examples-library/src/test.ts",
+            "tsConfig": "projects/angular-examples-library/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-examples-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-examples-library/tsconfig.lib.json",
+              "projects/angular-examples-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-examples",

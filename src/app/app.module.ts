@@ -15,6 +15,7 @@ import {StoreModule} from '@ngrx/store';
 import {reducers} from './app-main/ngrx-core/reducers';
 import {StoreDevtoolsModule, StoreDevtoolsOptions} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
+import {AngularExamplesLibraryModule} from 'angular-examples-library';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {environment} from '../environments/environment';
     MatIconModule,
     MatListModule,
     AppRoutingModule,
+    AngularExamplesLibraryModule,
     !environment.production ? StoreDevtoolsModule.instrument(<StoreDevtoolsOptions>{maxAge: 50}) : [],
     StoreModule.forRoot(reducers)
   ],
