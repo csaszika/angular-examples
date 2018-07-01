@@ -1,6 +1,4 @@
-import {Component, ElementRef, Injector, OnInit} from '@angular/core';
-import {KnowledgeBaseCardComponent} from '../knowledge-base-card/knowledge-base-card.component';
-import {createCustomElement} from '@angular/elements';
+import {Component, ElementRef, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-angular-elements-container',
@@ -9,21 +7,18 @@ import {createCustomElement} from '@angular/elements';
 })
 export class AngularElementsContainerComponent implements OnInit {
 
-  // content: any;
+  kbcard;
 
-  constructor(private elementRef: ElementRef,
-              private injector: Injector) { }
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    const element = createCustomElement(KnowledgeBaseCardComponent, {injector: this.injector});
-    customElements.define('knowledge-base-card', element);
 
-    const kbcard = document.createElement('knowledge-base-card');
+    this.kbcard = document.createElement('knowledge-base-card-element');
 
     // (kbcard as KnowledgeBaseCardComponent).name = 'Fuck yeah dynamic custom element!';
-    (kbcard as any).name = 'Fuck yeah dynamic custom element!';
+    (this.kbcard as any).name = 'Fuck yeah dynamic custom element!';
 
-    this.elementRef.nativeElement.appendChild(kbcard);
+    this.elementRef.nativeElement.appendChild(this.kbcard);
   }
 
 }

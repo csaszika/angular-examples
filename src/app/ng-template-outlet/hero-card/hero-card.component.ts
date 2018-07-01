@@ -16,7 +16,6 @@ export class HeroCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('hero', this.hero);
   }
 
 }
