@@ -23,6 +23,10 @@ const appRoutes: Routes = [
         path: 'ng-template-outlet',
         loadChildren: './ng-template-outlet/ng-template-outlet.module#NgTemplateOutletModule'
       },
+      {
+        path: 'angular-elements',
+        loadChildren: './angular-elements/angular-elements.module#AngularElementsModule'
+      },
       { path: '', pathMatch: 'full', redirectTo: 'home' }
     ]
   },

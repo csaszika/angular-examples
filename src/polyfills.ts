@@ -34,6 +34,13 @@
 // import 'core-js/es6/weak-map';
 // import 'core-js/es6/set';
 
+// npm install @webcomponents/custom-elements :)
+// Used for browsers with partially native support of Custom Elements
+import '@webcomponents/custom-elements/src/native-shim';
+// Used for browsers without a native support of Custom Elements
+import '@webcomponents/custom-elements/custom-elements.min';
+
+
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
 
