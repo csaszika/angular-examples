@@ -20,7 +20,8 @@ export class AngularElementsContainerComponent implements OnInit {
 
     const kbcard = document.createElement('knowledge-base-card');
 
-    (kbcard as KnowledgeBaseCardComponent).name = 'Fuck yeah dynamic custom element!';
+    // (kbcard as KnowledgeBaseCardComponent).name = 'Fuck yeah dynamic custom element!';
+    (kbcard as any).name = 'Fuck yeah dynamic custom element!';
 
     this.elementRef.nativeElement.appendChild(kbcard);
   }
