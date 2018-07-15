@@ -5,10 +5,13 @@ import {AngularElementsRoutingModule} from './angular-elements-routing.module';
 import {AngularElementsContainerComponent} from './angular-elements-container/angular-elements-container.component';
 import {KnowledgeBaseCardComponent} from './knowledge-base-card/knowledge-base-card.component';
 import {createCustomElement} from '@angular/elements';
+import {MatButtonModule, MatCardModule} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
+    MatCardModule,
+    MatButtonModule,
     AngularElementsRoutingModule
   ],
   declarations: [

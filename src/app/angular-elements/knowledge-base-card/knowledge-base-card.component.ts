@@ -9,6 +9,7 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
 // extends HTMLElement is not working 20180701 :(
 export class KnowledgeBaseCardComponent {
 
-  @Input() name: string;
+  @Input() title: string;
+  @Input() description: string;
 
 }
