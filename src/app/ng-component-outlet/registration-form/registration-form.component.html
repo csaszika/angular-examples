@@ -1,0 +1,29 @@
+<div class="form-container">
+  <form [formGroup]="formGroup"
+        (ngSubmit)="submitForm()"
+        class="registration-form">
+
+    <div class="form-fields">
+
+    </div>
+    <mat-form-field>
+      <input matInput
+             type="text" placeholder="Name"
+             [formControl]="formGroup.get('name')">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput
+             type="password" placeholder="Password"
+             [formControl]="formGroup.get('password')">
+    </mat-form-field>
+
+    <button mat-raised-button
+            type="submit" color="primary">Submit</button>
+
+    <button mat-button
+            type="reset" color="warn">Reset</button>
+
+  </form>
+
+</div>

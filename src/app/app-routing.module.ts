@@ -24,6 +24,10 @@ const appRoutes: Routes = [
         loadChildren: './ng-template-outlet/ng-template-outlet.module#NgTemplateOutletModule'
       },
       {
+        path: 'ng-component-outlet',
+        loadChildren: './ng-component-outlet/ng-component-outlet.module#NgComponentOutletModule'
+      },
+      {
         path: 'angular-elements',
         loadChildren: './angular-elements/angular-elements.module#AngularElementsModule'
       },
