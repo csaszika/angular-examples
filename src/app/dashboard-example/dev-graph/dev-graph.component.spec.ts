@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DevGraphComponent} from './dev-graph.component';
+import {StoreModule} from '@ngrx/store';
 
 describe('DevGraphComponent', () => {
   let component: DevGraphComponent;
@@ -9,8 +10,7 @@ describe('DevGraphComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DevGraphComponent]
-    })
-      .compileComponents();
+    });
   }));
 
   beforeEach(() => {
@@ -19,7 +19,4 @@ describe('DevGraphComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

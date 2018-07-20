@@ -7,6 +7,7 @@ import {selectAllDevTeamMembers} from '../ngrx-feature-core/reducers/dev-team/se
 import {datatableRowsAnim} from '../../app-main/animations/list.animations';
 import {DevTeamMember} from '../types/dev-team';
 import {SelectionModel} from '@angular/cdk/collections';
+import {GetDevTeamMembers} from '../ngrx-feature-core/actions/dev-team/dev-team';
 
 @Component({
   selector: 'dev-team-table',
@@ -24,6 +25,7 @@ export class DevTeamTableComponent implements OnInit {
   selection: SelectionModel<DevTeamMember>;
 
   constructor(private store: Store<DevTeamState>) {
+    this.store.dispatch(new GetDevTeamMembers());
   }
 
   ngOnInit() {

@@ -1,6 +1,9 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {DevTeamFormComponent} from './dev-team-form.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+import {StoreModule} from '@ngrx/store';
 
 describe('DevTeamFormComponent', () => {
   let component: DevTeamFormComponent;
@@ -8,9 +11,10 @@ describe('DevTeamFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DevTeamFormComponent]
-    })
-      .compileComponents();
+      imports: [ReactiveFormsModule, StoreModule],
+      declarations: [DevTeamFormComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    });
   }));
 
   beforeEach(() => {
@@ -19,7 +23,4 @@ describe('DevTeamFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

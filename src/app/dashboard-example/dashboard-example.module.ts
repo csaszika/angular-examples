@@ -21,6 +21,8 @@ import {DevGraphComponent} from './dev-graph/dev-graph.component';
 import {DevTeamFormComponent} from './dev-team-form/dev-team-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {DevTeamTableComponent} from './dev-team-table/dev-team-table.component';
+import {EffectsModule} from '@ngrx/effects';
+import {DevTeamEffects} from './ngrx-feature-core/effects/dev-team.effects';
 
 @NgModule({
   imports: [
@@ -38,7 +40,8 @@ import {DevTeamTableComponent} from './dev-team-table/dev-team-table.component';
     MatPaginatorModule,
     MatSortModule,
     MatCheckboxModule,
-    StoreModule.forFeature(DASHBOARD_FEATURE_STATE, reducers)
+    StoreModule.forFeature(DASHBOARD_FEATURE_STATE, reducers),
+    EffectsModule.forFeature([DevTeamEffects])
     // EffectsModule.forFeature([])
   ],
   declarations: [

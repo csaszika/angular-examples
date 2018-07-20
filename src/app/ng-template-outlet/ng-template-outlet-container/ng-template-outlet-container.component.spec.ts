@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgTemplateOutletContainerComponent } from './ng-template-outlet-container.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {HeroSummaryPipe} from '../pipes/hero-summary.pipe';
 
 describe('NgTemplateOutletContainerComponent', () => {
   let component: NgTemplateOutletContainerComponent;
@@ -8,9 +10,12 @@ describe('NgTemplateOutletContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgTemplateOutletContainerComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        NgTemplateOutletContainerComponent,
+        HeroSummaryPipe
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    });
   }));
 
   beforeEach(() => {

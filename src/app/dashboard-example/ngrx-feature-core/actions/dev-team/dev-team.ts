@@ -3,6 +3,9 @@ import { Update } from '@ngrx/entity';
 import {DevTeamMember} from '../../../types/dev-team';
 
 export enum DevTeamMemberActionTypes {
+  // effects actions
+  GET_DEV_TEAM_MEMBERS = '[DevTeam] Get DevTeamMembers',
+  // reducer actions
   LOAD_DEV_TEAM_MEMBERS = '[DevTeam] Load DevTeamMembers',
   ADD_DEV_TEAM_MEMBER = '[DevTeam] Add DevTeamMember',
   UPSERT_DEV_TEAM_MEMBER = '[DevTeam] Upsert DevTeamMember',
@@ -15,6 +18,12 @@ export enum DevTeamMemberActionTypes {
   CLEAR_DEV_TEAM_MEMBERS = '[DevTeam] Clear DevTeamMembers',
 }
 
+
+export class GetDevTeamMembers implements Action {
+  readonly type = DevTeamMemberActionTypes.GET_DEV_TEAM_MEMBERS;
+
+  constructor() {}
+}
 
 export class LoadDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.LOAD_DEV_TEAM_MEMBERS;

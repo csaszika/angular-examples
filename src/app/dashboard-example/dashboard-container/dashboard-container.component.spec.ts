@@ -1,24 +1,22 @@
 
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {DashboardContainer} from './dashboard-container.component';
+import {DashboardContainerComponent} from './dashboard-container.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
-describe('DashboardContainer', () => {
-  let component: DashboardContainer;
-  let fixture: ComponentFixture<DashboardContainer>;
+describe('DashboardContainerComponent', () => {
+  let component: DashboardContainerComponent;
+  let fixture: ComponentFixture<DashboardContainerComponent>;
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardContainer]
-    })
-    .compileComponents();
+      declarations: [DashboardContainerComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    });
 
-    fixture = TestBed.createComponent(DashboardContainer);
+    fixture = TestBed.createComponent(DashboardContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
 
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
 });

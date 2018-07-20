@@ -8,6 +8,7 @@ import {
   selectDevTeamMemberTotal
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
 import {dashboardItemsAnim} from '../../app-main/animations/list.animations';
+import {GetDevTeamMembers} from '../ngrx-feature-core/actions/dev-team/dev-team';
 
 @Component({
   selector: 'dashboard',

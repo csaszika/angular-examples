@@ -16,6 +16,8 @@ import {reducers} from './app-main/ngrx-core/reducers';
 import {StoreDevtoolsModule, StoreDevtoolsOptions} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {AngularExamplesLibraryModule} from 'angular-examples-library';
+import {EffectsModule} from '@ngrx/effects';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import {AngularExamplesLibraryModule} from 'angular-examples-library';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     LayoutModule,
     // Overlay module is needed by dashboard-example module
@@ -39,7 +42,8 @@ import {AngularExamplesLibraryModule} from 'angular-examples-library';
     AppRoutingModule,
     AngularExamplesLibraryModule,
     !environment.production ? StoreDevtoolsModule.instrument(<StoreDevtoolsOptions>{maxAge: 50}) : [],
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JediFormComponent } from './jedi-form.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('JediFormComponent', () => {
   let component: JediFormComponent;
@@ -8,9 +10,10 @@ describe('JediFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JediFormComponent ]
-    })
-    .compileComponents();
+      imports: [ReactiveFormsModule],
+      declarations: [ JediFormComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    });
   }));
 
   beforeEach(() => {
@@ -19,7 +22,4 @@ describe('JediFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

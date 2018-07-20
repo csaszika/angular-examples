@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { KnowledgeBaseCardComponent } from './knowledge-base-card.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('KnowledgeBaseCardComponent', () => {
   let component: KnowledgeBaseCardComponent;
@@ -8,7 +9,8 @@ describe('KnowledgeBaseCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KnowledgeBaseCardComponent ]
+      declarations: [ KnowledgeBaseCardComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));

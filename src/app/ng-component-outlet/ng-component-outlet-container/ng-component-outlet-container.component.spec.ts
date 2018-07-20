@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgComponentOutletContainerComponent } from './ng-component-outlet-container.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('NgComponentOutletContainerComponent', () => {
   let component: NgComponentOutletContainerComponent;
@@ -8,7 +9,8 @@ describe('NgComponentOutletContainerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgComponentOutletContainerComponent ]
+      declarations: [ NgComponentOutletContainerComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -19,7 +21,4 @@ describe('NgComponentOutletContainerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
