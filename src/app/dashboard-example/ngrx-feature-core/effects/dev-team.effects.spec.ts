@@ -7,12 +7,13 @@ import {GetDevTeamMembers, LoadDevTeamMembers} from '../actions/dev-team/dev-tea
 import {cold, hot} from 'jasmine-marbles';
 import {DevTeamMember} from '../../types/dev-team';
 import createSpyObj = jasmine.createSpyObj;
+import {Action} from '@ngrx/store';
 
 describe('Devteam effects', () => {
 
   let effects: DevTeamEffects;
   let service;
-  let actions$: Observable<any>;
+  let actions$: Observable<Action>;
 
   const developers: DevTeamMember[] = [
       { name: 'Josh', backend: 3, frontend: 5, teamwork: 5 },
