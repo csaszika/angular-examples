@@ -41,9 +41,10 @@ import {HttpClientModule} from '@angular/common/http';
     MatListModule,
     AppRoutingModule,
     AngularExamplesLibraryModule,
-    !environment.production ? StoreDevtoolsModule.instrument(<StoreDevtoolsOptions>{maxAge: 50}) : [],
+    // !environment.production ? StoreDevtoolsModule.instrument(<StoreDevtoolsOptions>{maxAge: 50}) : [],
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument(<StoreDevtoolsOptions>{maxAge: 50})
   ],
   providers: [],
   bootstrap: [AppComponent]
