@@ -4,7 +4,7 @@ import {Observable, of} from 'rxjs';
 import {TestBed} from '@angular/core/testing';
 import {provideMockActions} from '@ngrx/effects/testing';
 import {GetDevTeamMembers, LoadDevTeamMembers} from '../actions/dev-team/dev-team';
-import {cold} from 'jasmine-marbles';
+import {cold, hot} from 'jasmine-marbles';
 import {DevTeamMember} from '../../types/dev-team';
 import createSpyObj = jasmine.createSpyObj;
 
@@ -39,6 +39,47 @@ describe('Devteam effects', () => {
     actions$ = of(action);
     const response = cold('-a|', { a: developers });
     const expected = cold('-b|', { b: result });
+
+    service.get.and.returnValue(response);
+
+    expect(effects.loadDevTeamMembers$).toBeObservable(expected);
+  });
+
+  it('should call the mock backend api and return the results', () => {
+    const action = new GetDevTeamMembers();
+    const result = new LoadDevTeamMembers({devTeamMembers: developers});
+
+    actions$ = hot('-a', {a: action});
+    const response = cold('-b|', { b: developers });
+    const expected = cold('--c', { c: result });
+
+    service.get.and.returnValue(response);
+
+    expect(effects.loadDevTeamMembers$).toBeObservable(expected);
+  });
+
+  it('should call the mock backend api and return with an error', () => {
+    const error = 'FAIL';
+    const action = new GetDevTeamMembers();
+    const result = {type: 'FAILED', payload: null};
+
+    actions$ = cold('-a', {a: action});
+    const response = cold('-#', {}, error);
+    const expected = cold('--b', { b: result });
+
+    service.get.and.returnValue(response);
+
+    expect(effects.loadDevTeamMembers$).toBeObservable(expected);
+  });
+
+  it('should call the mock backend api and return with an error', () => {
+    const error = 'FAIL';
+    const action = new GetDevTeamMembers();
+    const result = {type: 'FAILED', payload: null};
+
+    actions$ = hot('--a', {a: action});
+    const response = cold('---#', {}, error);
+    const expected = cold('-----b', { b: result });
 
     service.get.and.returnValue(response);
 
