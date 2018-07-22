@@ -7,6 +7,7 @@ export enum DevTeamMemberActionTypes {
   GET_DEV_TEAM_MEMBERS = '[DevTeam] Get DevTeamMembers',
   // reducer actions
   LOAD_DEV_TEAM_MEMBERS = '[DevTeam] Load DevTeamMembers',
+  LOAD_DEV_TEAM_MEMBERS_FAILED = '[DevTeam] Load DevTeamMembers failed',
   ADD_DEV_TEAM_MEMBER = '[DevTeam] Add DevTeamMember',
   UPSERT_DEV_TEAM_MEMBER = '[DevTeam] Upsert DevTeamMember',
   ADD_DEV_TEAM_MEMBERS = '[DevTeam] Add DevTeamMembers',
@@ -29,6 +30,12 @@ export class LoadDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.LOAD_DEV_TEAM_MEMBERS;
 
   constructor(public payload: { devTeamMembers: DevTeamMember[] }) {}
+}
+
+export class LoadDevTeamMembersFailed implements Action {
+  readonly type = DevTeamMemberActionTypes.LOAD_DEV_TEAM_MEMBERS_FAILED;
+
+  constructor() {}
 }
 
 export class AddDevTeamMember implements Action {
@@ -87,6 +94,7 @@ export class ClearDevTeamMembers implements Action {
 
 export type DevTeamMemberActions =
   | LoadDevTeamMembers
+  | LoadDevTeamMembersFailed
   | AddDevTeamMember
   | UpsertDevTeamMember
   | AddDevTeamMembers

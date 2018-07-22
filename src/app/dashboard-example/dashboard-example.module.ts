@@ -23,6 +23,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {DevTeamTableComponent} from './dev-team-table/dev-team-table.component';
 import {EffectsModule} from '@ngrx/effects';
 import {DevTeamEffects} from './ngrx-feature-core/effects/dev-team.effects';
+import {DevTeamMembersResolver} from './resolvers/dev-team-members.resolver';
 
 @NgModule({
   imports: [
@@ -49,6 +50,9 @@ import {DevTeamEffects} from './ngrx-feature-core/effects/dev-team.effects';
     DevTeamFormComponent,
     DevGraphComponent,
     DevTeamTableComponent
+  ],
+  providers: [
+    DevTeamMembersResolver
   ]
 })
 export class DashboardExampleModule { }
