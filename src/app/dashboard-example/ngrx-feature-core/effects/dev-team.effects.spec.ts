@@ -84,6 +84,9 @@ describe('Devteam effects', () => {
 
     service.get.and.returnValue(response);
 
+    console.log(effects.loadDevTeamMembers$);
+    console.log(expected);
+
     expect(effects.loadDevTeamMembers$).toBeObservable(expected);
   });
 });

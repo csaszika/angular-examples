@@ -14,7 +14,7 @@ export class DevTeamEffects {
   loadDevTeamMembers$: Observable<Action> = this.actions$.pipe(
     ofType(DevTeamMemberActionTypes.GET_DEV_TEAM_MEMBERS),
     switchMap(() =>
-      this.http.get<DevTeamMember[]>('assetss/resources/developers.json').pipe(
+      this.http.get<DevTeamMember[]>('assets/resources/developers.json').pipe(
         map(data => new LoadDevTeamMembers({devTeamMembers: data as DevTeamMember[]})),
         catchError(err => of(new LoadDevTeamMembersFailed()))
       ))
