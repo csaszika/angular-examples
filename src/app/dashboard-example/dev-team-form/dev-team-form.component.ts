@@ -5,6 +5,8 @@ import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
 import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team';
 import {GenericElementRef} from '../../app-main/types/generic-element-ref';
+import {Observable} from 'rxjs';
+import {debounceTime, filter, map} from 'rxjs/operators';
 
 @Component({
   selector: 'dev-team-form',
@@ -18,10 +20,20 @@ export class DevTeamFormComponent implements OnInit {
   devFormGroup: FormGroup;
 
   constructor(private store: Store<DevTeamState>) {
-    this.devFormGroup = new DevTeamMemberForm();
   }
 
   ngOnInit() {
+    this.devFormGroup = new DevTeamMemberForm();
+
+    this.devFormGroup.valueChanges.pipe(
+      debounceTime(500),
+      filterByPropertyValid(this.devFormGroup.valid, this.devFormGroup, this.devFormGroup.controls.name.value),
+      filterByValidity(this.devFormGroup),
+      map(x => {
+        console.log('after', x);
+        console.log('after valid', this.devFormGroup.valid);
+      })
+    ).subscribe();
   }
 
   submitForm(devFormGroup: FormGroup): void {
@@ -38,3 +50,14 @@ export class DevTeamFormComponent implements OnInit {
   }
 
 }
+
+export const filterByValidity = (form: FormGroup) =>
+  (source: Observable<object>) => source.pipe(filter(() => form.valid));
+
+export const filterByPropertyValid = (validity: boolean, form: FormGroup, name: string) =>
+  (source: Observable<object>) => source.pipe(filter(() => {
+    console.log('prop', validity);
+    console.log('form valid', form.valid);
+    console.log('name', name);
+    return form.valid;
+  }));
