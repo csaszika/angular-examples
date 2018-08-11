@@ -1,22 +1,29 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
+import {dashboardItemsAnim} from '../../app-main/animations/list.animations';
+import {Observable} from 'rxjs';
 import {
   selectAllDevTeamMembers,
-  selectDevTeamMemberEntities,
-  selectDevTeamMemberIds,
-  selectDevTeamMemberTotal
+  selectDevTeamBackendAverage,
+  selectDevTeamFrontendAverage,
+  selectDevTeamTeamworkAverage
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
-import {dashboardItemsAnim} from '../../app-main/animations/list.animations';
-import {GetDevTeamMembers} from '../ngrx-feature-core/actions/dev-team/dev-team';
+import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team';
+import {FormGroup} from '@angular/forms';
+import {DevTeamMember} from '../types/dev-team';
 
 @Component({
-  selector: 'dashboard',
   templateUrl: './dashboard-container.component.html',
   styleUrls: ['./dashboard-container.component.scss'],
   animations: [dashboardItemsAnim]
 })
-export class DashboardContainerComponent implements OnInit {
+export class DashboardContainerComponent {
+
+  devTeamMembers$: Observable<DevTeamMember[]>;
+  devTeamFrontendAverage$: Observable<number>;
+  devTeamBackendAverage$: Observable<number>;
+  devTeamTeamworkAverage$: Observable<number>;
 
   cards = [
     {title: 'Dev Team member', cols: 1, rows: 1},
@@ -24,20 +31,22 @@ export class DashboardContainerComponent implements OnInit {
     {title: 'Dev Graph', cols: 1, rows: 2}
   ];
 
-  constructor(private store: Store<DevTeamState>) {}
+  constructor(private store: Store<DevTeamState>) {
+    this.devTeamMembers$ = this.store.select(selectAllDevTeamMembers);
+    this.devTeamFrontendAverage$ = store.select(selectDevTeamFrontendAverage);
+    this.devTeamBackendAverage$ = store.select(selectDevTeamBackendAverage);
+    this.devTeamTeamworkAverage$ = store.select(selectDevTeamTeamworkAverage);
+  }
 
-  ngOnInit(): void {
-    // this.store.select(selectAllDevTeamMembers)
-    //   .subscribe(x => console.log('all: ', x));
-    //
-    // this.store.select(selectDevTeamMemberTotal)
-    //   .subscribe(x => console.log('total: ' + x));
-    //
-    // this.store.select(selectDevTeamMemberIds)
-    //   .subscribe(x => console.log('ids: ' + x));
-    //
-    // this.store.select(selectDevTeamMemberEntities)
-    //   .subscribe(x => console.log('entities: ', x));
+  onSubmitForm(devFormGroup: FormGroup): void {
+    this.store.dispatch(new AddDevTeamMember({
+      devTeamMember: {
+        name: devFormGroup.controls.name.value,
+        frontend: devFormGroup.controls.frontend.value,
+        backend: devFormGroup.controls.backend.value,
+        teamwork: devFormGroup.controls.teamwork.value
+      }
+    }));
   }
 
 

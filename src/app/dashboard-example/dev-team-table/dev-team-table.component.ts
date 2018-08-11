@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, PageEvent} from '@angular/material';
 import {DevTeamTableDataSource} from './dev-team-table-datasource';
 import {Store} from '@ngrx/store';
@@ -14,27 +14,26 @@ import {SelectionModel} from '@angular/cdk/collections';
   styleUrls: ['./dev-team-table.component.scss'],
   animations: [datatableRowsAnim]
 })
-export class DevTeamTableComponent implements OnInit {
+export class DevTeamTableComponent implements OnInit, OnChanges {
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   dataSource: DevTeamTableDataSource;
+
+  @Input() devTeamMembers: DevTeamMember[];
 
   displayedColumns = ['select', 'name', 'frontend', 'backend', 'teamwork'];
 
   selection: SelectionModel<DevTeamMember>;
 
-  constructor(private store: Store<DevTeamState>) {}
+  ngOnChanges(): void {
+    this.dataSource = new DevTeamTableDataSource(this.paginator, this.sort, this.devTeamMembers);
+  }
 
-  ngOnInit() {
-    this.dataSource = new DevTeamTableDataSource(this.paginator, this.sort, []);
-    this.store.select(selectAllDevTeamMembers).subscribe((members: DevTeamMember[]) => {
-      this.dataSource = new DevTeamTableDataSource(this.paginator, this.sort, members);
-    });
-
+  ngOnInit(): void {
     const initialSelection = [];
     const allowMultiSelect = true;
     this.selection = new SelectionModel<DevTeamMember>(allowMultiSelect, initialSelection);
-
   }
 
   isAllSelected() {

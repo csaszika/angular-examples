@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {DevTeamMemberForm} from './dev-team-member.form';
 import {Store} from '@ngrx/store';
@@ -17,10 +17,9 @@ export class DevTeamFormComponent implements OnInit {
 
   @ViewChild('devName') devName: GenericElementRef<HTMLInputElement>;
 
-  devFormGroup: FormGroup;
+  @Output() submit: EventEmitter<DevTeamMemberForm> = new EventEmitter<DevTeamMemberForm>();
 
-  constructor(private store: Store<DevTeamState>) {
-  }
+  devFormGroup: FormGroup;
 
   ngOnInit() {
     this.devFormGroup = new DevTeamMemberForm();
@@ -29,22 +28,11 @@ export class DevTeamFormComponent implements OnInit {
       debounceTime(500),
       filterByPropertyValid(this.devFormGroup.valid, this.devFormGroup, this.devFormGroup.controls.name.value),
       filterByValidity(this.devFormGroup),
-      map(x => {
-        console.log('after', x);
-        console.log('after valid', this.devFormGroup.valid);
-      })
     ).subscribe();
   }
 
   submitForm(devFormGroup: FormGroup): void {
-    this.store.dispatch(new AddDevTeamMember({
-      devTeamMember: {
-        name: devFormGroup.controls.name.value,
-        frontend: devFormGroup.controls.frontend.value,
-        backend: devFormGroup.controls.backend.value,
-        teamwork: devFormGroup.controls.teamwork.value
-      }
-    }));
+    this.submit.emit(devFormGroup);
     this.devName.nativeElement.focus();
     this.devFormGroup.reset();
   }
@@ -56,8 +44,8 @@ export const filterByValidity = (form: FormGroup) =>
 
 export const filterByPropertyValid = (validity: boolean, form: FormGroup, name: string) =>
   (source: Observable<object>) => source.pipe(filter(() => {
-    console.log('prop', validity);
-    console.log('form valid', form.valid);
-    console.log('name', name);
+    // console.log('prop', validity);
+    // console.log('form valid', form.valid);
+    // console.log('name', name);
     return form.valid;
   }));
