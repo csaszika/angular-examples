@@ -1,4 +1,3 @@
-import {AppState} from '../../../app-main/ngrx-core/reducers';
 import {ActionReducerMap, createFeatureSelector, createSelector} from '@ngrx/store';
 import * as devTeam from './dev-team/dev-team';
 
@@ -10,7 +9,7 @@ export const initialState: DashboardFeatureState = {
   devTeam: devTeam.initialstate
 };
 
-export const reducers: ActionReducerMap<AppState> = {
+export const reducers: ActionReducerMap<DashboardFeatureState> = {
   devTeam: devTeam.reducer
 };
 

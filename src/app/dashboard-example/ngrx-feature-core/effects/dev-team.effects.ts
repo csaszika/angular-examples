@@ -10,14 +10,22 @@ import {Action} from '@ngrx/store';
 @Injectable()
 export class DevTeamEffects {
 
+  // @Effect()
+  // loadDevTeamMembers$: Observable<Action> = this.actions$.pipe(
+  //   ofType(DevTeamMemberActionTypes.GET_DEV_TEAM_MEMBERS),
+  //   switchMap(() =>
+  //     this.http.get<DevTeamMember[]>('assets/resources/developers.json').pipe(
+  //       map(data => new LoadDevTeamMembers({devTeamMembers: data as DevTeamMember[]})),
+  //       catchError(err => of(new LoadDevTeamMembersFailed()))
+  //     ))
+  // );
+
   @Effect()
   loadDevTeamMembers$: Observable<Action> = this.actions$.pipe(
     ofType(DevTeamMemberActionTypes.GET_DEV_TEAM_MEMBERS),
-    switchMap(() =>
-      this.http.get<DevTeamMember[]>('assets/resources/developers.json').pipe(
-        map(data => new LoadDevTeamMembers({devTeamMembers: data as DevTeamMember[]})),
-        catchError(err => of(new LoadDevTeamMembersFailed()))
-      ))
+    switchMap(() => this.http.get<DevTeamMember[]>('assets/resources/developers.json')),
+    map(data => new LoadDevTeamMembers({devTeamMembers: data as DevTeamMember[]})),
+    catchError(err => of(new LoadDevTeamMembersFailed()))
   );
 
   constructor(private http: HttpClient,
