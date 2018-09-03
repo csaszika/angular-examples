@@ -2,7 +2,7 @@ import {Component, Input, OnChanges, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, PageEvent} from '@angular/material';
 import {DevTeamTableDataSource} from './dev-team-table-datasource';
 import {Store} from '@ngrx/store';
-import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
+import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team.reducer';
 import {selectAllDevTeamMembers} from '../ngrx-feature-core/reducers/dev-team/selectors';
 import {datatableRowsAnim} from '../../app-main/animations/list.animations';
 import {DevTeamMember} from '../types/dev-team';

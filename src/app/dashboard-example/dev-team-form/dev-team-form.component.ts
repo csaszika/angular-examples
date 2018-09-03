@@ -2,8 +2,8 @@ import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core'
 import {FormGroup} from '@angular/forms';
 import {DevTeamMemberForm} from './dev-team-member.form';
 import {Store} from '@ngrx/store';
-import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
-import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team';
+import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team.reducer';
+import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team.actions';
 import {GenericElementRef} from '../../app-main/types/generic-element-ref';
 import {Observable} from 'rxjs';
 import {debounceTime, filter, map} from 'rxjs/operators';

@@ -29,7 +29,7 @@ export class GetDevTeamMembers implements Action {
 export class LoadDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.LOAD_DEV_TEAM_MEMBERS;
 
-  constructor(public payload: { devTeamMembers: DevTeamMember[] }) {}
+  constructor(public payload: DevTeamMember[]) {}
 }
 
 export class LoadDevTeamMembersFailed implements Action {
@@ -41,51 +41,51 @@ export class LoadDevTeamMembersFailed implements Action {
 export class AddDevTeamMember implements Action {
   readonly type = DevTeamMemberActionTypes.ADD_DEV_TEAM_MEMBER;
 
-  constructor(public payload: { devTeamMember: DevTeamMember }) {}
+  constructor(public payload: DevTeamMember) {}
 }
 
 export class UpsertDevTeamMember implements Action {
   readonly type = DevTeamMemberActionTypes.UPSERT_DEV_TEAM_MEMBER;
 
-  constructor(public payload: { devTeamMember: DevTeamMember }) {
+  constructor(public payload: DevTeamMember) {
   }
 }
 
 export class AddDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.ADD_DEV_TEAM_MEMBERS;
 
-  constructor(public payload: { devTeamMembers: DevTeamMember[] }) {}
+  constructor(public payload: DevTeamMember[]) {}
 }
 
 export class UpsertDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.UPSERT_DEV_TEAM_MEMBERS;
 
-  constructor(public payload: { devTeamMembers: DevTeamMember[] }) {
+  constructor(public payload: DevTeamMember[]) {
   }
 }
 
 export class UpdateDevTeamMember implements Action {
   readonly type = DevTeamMemberActionTypes.UPDATE_DEV_TEAM_MEMBER;
 
-  constructor(public payload: { devTeamMember: Update<DevTeamMember> }) {}
+  constructor(public payload: Update<DevTeamMember> ) {}
 }
 
 export class UpdateDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.UPDATE_DEV_TEAM_MEMBERS;
 
-  constructor(public payload: { devTeamMembers: Update<DevTeamMember>[] }) {}
+  constructor(public payload: Update<DevTeamMember>[] ) {}
 }
 
 export class DeleteDevTeamMember implements Action {
   readonly type = DevTeamMemberActionTypes.DELETE_DEV_TEAM_MEMBER;
 
-  constructor(public payload: { id: string }) {}
+  constructor(public payload: DevTeamMemberId ) {}
 }
 
 export class DeleteDevTeamMembers implements Action {
   readonly type = DevTeamMemberActionTypes.DELETE_DEV_TEAM_MEMBERS;
 
-  constructor(public payload: { ids: string[] }) {}
+  constructor(public payload: DevTeamMemberId[]) {}
 }
 
 export class ClearDevTeamMembers implements Action {
@@ -104,3 +104,5 @@ export type DevTeamMemberActions =
   | DeleteDevTeamMember
   | DeleteDevTeamMembers
   | ClearDevTeamMembers;
+
+export type DevTeamMemberId = string;

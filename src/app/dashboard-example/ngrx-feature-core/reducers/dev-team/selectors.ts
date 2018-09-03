@@ -1,7 +1,7 @@
 import {createSelector} from '@ngrx/store';
 import {selectDevTeamState} from '../index';
-import * as dashboard from './dev-team';
-import {DevTeamState} from './dev-team';
+import * as dashboard from './dev-team.reducer';
+import {DevTeamState} from './dev-team.reducer';
 import {DevTeamMember} from '../../../types/dev-team';
 
 export const selectDevTeamMemberIds = createSelector(
