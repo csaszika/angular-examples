@@ -32,7 +32,7 @@ export class DashboardContainerComponent {
   ];
 
   constructor(private store: Store<DevTeamState>) {
-    this.devTeamMembers$ = this.store.select(selectAllDevTeamMembers);
+    this.devTeamMembers$ = store.select(selectAllDevTeamMembers);
     this.devTeamFrontendAverage$ = store.select(selectDevTeamFrontendAverage);
     this.devTeamBackendAverage$ = store.select(selectDevTeamBackendAverage);
     this.devTeamTeamworkAverage$ = store.select(selectDevTeamTeamworkAverage);
