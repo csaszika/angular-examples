@@ -5,7 +5,7 @@ import {DevTeamMember} from '../types/dev-team';
 import {Observable, race} from 'rxjs';
 import {selectAllDevTeamMembers} from '../ngrx-feature-core/reducers/dev-team/selectors';
 import {take, tap} from 'rxjs/operators';
-import {DevTeamMemberActionTypes, GetDevTeamMembers} from '../ngrx-feature-core/actions/dev-team/dev-team';
+import {DevTeamMemberActionTypes, GetDevTeamMembers} from '../ngrx-feature-core/actions/dev-team/dev-team.actions';
 import {Injectable} from '@angular/core';
 import {Actions} from '@ngrx/effects';
 

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
+import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team.reducer';
 import {dashboardItemsAnim} from '../../app-main/animations/list.animations';
 import {Observable} from 'rxjs';
 import {
@@ -9,7 +9,7 @@ import {
   selectDevTeamFrontendAverage,
   selectDevTeamTeamworkAverage
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
-import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team';
+import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team.actions';
 import {FormGroup} from '@angular/forms';
 import {DevTeamMember} from '../types/dev-team';
 
@@ -40,12 +40,10 @@ export class DashboardContainerComponent {
 
   onSubmitForm(devFormGroup: FormGroup): void {
     this.store.dispatch(new AddDevTeamMember({
-      devTeamMember: {
-        name: devFormGroup.controls.name.value,
-        frontend: devFormGroup.controls.frontend.value,
-        backend: devFormGroup.controls.backend.value,
-        teamwork: devFormGroup.controls.teamwork.value
-      }
+      name: devFormGroup.controls.name.value,
+      frontend: devFormGroup.controls.frontend.value,
+      backend: devFormGroup.controls.backend.value,
+      teamwork: devFormGroup.controls.teamwork.value
     }));
   }
 

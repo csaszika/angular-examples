@@ -1,6 +1,6 @@
 import {DevTeamMember} from '../../../types/dev-team';
 import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
-import {DevTeamMemberActionTypes, DevTeamMemberActions} from '../../actions/dev-team/dev-team';
+import {DevTeamMemberActionTypes, DevTeamMemberActions} from '../../actions/dev-team/dev-team.actions';
 
 export interface DevTeamState extends EntityState<DevTeamMember> {
   selectedElementId: number | null;
@@ -15,46 +15,46 @@ function sortByName(ob1: DevTeamMember, ob2: DevTeamMember): number {
   return ob1.name.localeCompare(ob2.name);
 }
 
-export const initialstate: DevTeamState = adapter.getInitialState({
+export const initialState: DevTeamState = adapter.getInitialState({
   selectedElementId: null
 });
 
-export function reducer(state = initialstate, action: DevTeamMemberActions): DevTeamState {
+export function reducer(state = initialState, action: DevTeamMemberActions): DevTeamState {
   switch (action.type) {
     case DevTeamMemberActionTypes.ADD_DEV_TEAM_MEMBER: {
-      return adapter.addOne(action.payload.devTeamMember, state);
+      return adapter.addOne(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.UPSERT_DEV_TEAM_MEMBER: {
-      return adapter.upsertOne(action.payload.devTeamMember, state);
+      return adapter.upsertOne(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.UPSERT_DEV_TEAM_MEMBERS: {
-      return adapter.upsertMany(action.payload.devTeamMembers, state);
+      return adapter.upsertMany(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.ADD_DEV_TEAM_MEMBERS: {
-      return adapter.addMany(action.payload.devTeamMembers, state);
+      return adapter.addMany(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.UPDATE_DEV_TEAM_MEMBER: {
-      return adapter.updateOne(action.payload.devTeamMember, state);
+      return adapter.updateOne(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.UPDATE_DEV_TEAM_MEMBERS: {
-      return adapter.updateMany(action.payload.devTeamMembers, state);
+      return adapter.updateMany(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.DELETE_DEV_TEAM_MEMBER: {
-      return adapter.removeOne(action.payload.id, state);
+      return adapter.removeOne(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.DELETE_DEV_TEAM_MEMBERS: {
-      return adapter.removeMany(action.payload.ids, state);
+      return adapter.removeMany(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.LOAD_DEV_TEAM_MEMBERS: {
-      return adapter.addAll(action.payload.devTeamMembers, state);
+      return adapter.addAll(action.payload, state);
     }
 
     case DevTeamMemberActionTypes.CLEAR_DEV_TEAM_MEMBERS: {

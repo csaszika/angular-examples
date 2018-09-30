@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {TestBed} from '@angular/core/testing';
 import {provideMockActions} from '@ngrx/effects/testing';
-import {GetDevTeamMembers, LoadDevTeamMembers, LoadDevTeamMembersFailed} from '../actions/dev-team/dev-team';
+import {GetDevTeamMembers, LoadDevTeamMembers, LoadDevTeamMembersFailed} from '../actions/dev-team/dev-team.actions';
 import {cold, hot} from 'jasmine-marbles';
 import {DevTeamMember} from '../../types/dev-team';
 import createSpyObj = jasmine.createSpyObj;
@@ -35,7 +35,7 @@ describe('Devteam effects', () => {
 
   it('should call the mock backend api and return the results', () => {
     const action = new GetDevTeamMembers();
-    const result = new LoadDevTeamMembers({devTeamMembers: developers});
+    const result = new LoadDevTeamMembers(developers);
 
     actions$ = of(action);
     const response = cold('-a|', { a: developers });
@@ -48,7 +48,7 @@ describe('Devteam effects', () => {
 
   it('should call the mock backend api and return the results', () => {
     const action = new GetDevTeamMembers();
-    const result = new LoadDevTeamMembers({devTeamMembers: developers});
+    const result = new LoadDevTeamMembers(developers);
 
     actions$ = hot('-a', {a: action});
     const response = cold('-b|', { b: developers });
