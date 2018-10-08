@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'ael-angular-examples-library',
   template: `
     <h3>
-      127.0.0.1 in library
+      127.0.0.1 in library version 2
     </h3>
   `,
   styles: []
