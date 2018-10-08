@@ -15,7 +15,7 @@ export class DevTeamEffects {
   //   ofType(DevTeamMemberActionTypes.GET_DEV_TEAM_MEMBERS),
   //   switchMap(() =>
   //     this.http.get<DevTeamMember[]>('assets/resources/developers.json').pipe(
-  //       map(data => new LoadDevTeamMembers({devTeamMembers: data as DevTeamMember[]})),
+  //       map(data => new LoadDevTeamMembers(data as DevTeamMember[])),
   //       catchError(err => of(new LoadDevTeamMembersFailed()))
   //     ))
   // );

@@ -6,3 +6,9 @@ export const devTeamMember: DevTeamMember = {
   frontend: 5,
   teamwork: 5
 };
+export const devTeamMember2: DevTeamMember = {
+  name: 'Sanyi2',
+  backend: 5,
+  frontend: 7,
+  teamwork: 5
+};
