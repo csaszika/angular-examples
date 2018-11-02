@@ -7,7 +7,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 })
 export class AngularElementsContainerComponent implements OnInit {
 
-  @ViewChild('cardsContainer', { read: HTMLElement }) container: ElementRef;
+  @ViewChild('cardsContainer') container: ElementRef;
 
   ngOnInit() {
 
