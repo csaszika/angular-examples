@@ -9,10 +9,9 @@ import {
   selectDevTeamTeamworkAverage
 } from '../ngrx-feature-core/reducers/dev-team/selectors';
 import {MatMenuModule} from '@angular/material';
-import {mockStore} from '../unit-test/ngrx-store.mock';
-import {Store} from '@ngrx/store';
+import {Store, StoreModule} from '@ngrx/store';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team';
+import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team.reducer';
 
 describe('DashboardContainerComponent', () => {
   let container: DashboardContainerComponent;
@@ -21,12 +20,9 @@ describe('DashboardContainerComponent', () => {
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
+      imports: [NoopAnimationsModule, MatMenuModule, StoreModule],
       declarations: [DashboardContainerComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-      providers: [
-        {provide: Store, useValue: mockStore}
-      ],
-      imports: [NoopAnimationsModule, MatMenuModule]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     });
 
     fixture = TestBed.createComponent(DashboardContainerComponent);

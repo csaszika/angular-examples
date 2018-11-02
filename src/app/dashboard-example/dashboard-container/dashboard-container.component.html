@@ -1,4 +1,7 @@
-<div class="grid-container"  [@dashboardItemsAnim]="">
+<div class="grid-container"
+     (@dashboardItemsAnim.start)="onAnimStart()"
+     (@dashboardItemsAnim.done)="onAnimEnded()"
+     [@dashboardItemsAnim]="">
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="17rem">
     <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
@@ -19,7 +22,7 @@
 
           <div [ngSwitch]="card.title">
             <dev-team-form *ngSwitchCase="'Dev Team member'"
-                           (submit)="onSubmitForm($event)"></dev-team-form>
+                           (anotherSubmit)="onSubmitForm($event)"></dev-team-form>
             <dev-graph *ngSwitchCase="'Dev Graph'"
                        [devTeamFrontendAverage]="devTeamFrontendAverage$ | async"
                        [devTeamTeamworkAverage]="devTeamTeamworkAverage$ | async"

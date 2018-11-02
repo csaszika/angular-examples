@@ -1,10 +1,9 @@
 <form [formGroup]="devFormGroup"
-      (ngSubmit)="submitForm(devFormGroup)">
+      (ngSubmit)="onSubmit()">
 
   <div class="dev-team-form-inputs">
     <mat-form-field>
-      <input #devName
-             matInput type="text"
+      <input matInput type="text"
              placeholder="Dev name"
              [formControl]="devFormGroup.get('name')"
              autocomplete="off">
@@ -55,13 +54,9 @@
   </div>
 
 
-  <button mat-raised-button [disabled]="devFormGroup.invalid"
-          type="submit" color="primary">Submit
-  </button>
+  <button mat-raised-button [disabled]="devFormGroup.invalid" type="submit" color="primary">Submit</button>
 
-  <button mat-button
-          type="reset" color="warn">Reset
-  </button>
+  <button mat-button type="reset" color="warn">Reset</button>
 
 </form>
 

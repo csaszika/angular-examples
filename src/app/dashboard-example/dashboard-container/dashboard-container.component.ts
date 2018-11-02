@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team.reducer';
 import {dashboardItemsAnim} from '../../app-main/animations/list.animations';
-import {Observable} from 'rxjs';
+import {fromEvent, Observable} from 'rxjs';
 import {
   selectAllDevTeamMembers,
   selectDevTeamBackendAverage,
@@ -12,13 +12,19 @@ import {
 import {AddDevTeamMember} from '../ngrx-feature-core/actions/dev-team/dev-team.actions';
 import {FormGroup} from '@angular/forms';
 import {DevTeamMember} from '../types/dev-team';
+import {DevTeamFormComponent} from '../dev-team-form/dev-team-form.component';
+import {tap} from 'rxjs/operators';
 
 @Component({
   templateUrl: './dashboard-container.component.html',
   styleUrls: ['./dashboard-container.component.scss'],
   animations: [dashboardItemsAnim]
 })
-export class DashboardContainerComponent {
+export class DashboardContainerComponent implements AfterViewInit {
+
+  @ViewChild(DevTeamFormComponent) form: ElementRef;
+
+  submitForm$: Observable<Event>;
 
   devTeamMembers$: Observable<DevTeamMember[]>;
   devTeamFrontendAverage$: Observable<number>;
@@ -38,6 +44,14 @@ export class DashboardContainerComponent {
     this.devTeamTeamworkAverage$ = store.select(selectDevTeamTeamworkAverage);
   }
 
+  ngAfterViewInit(): void {
+    // this.submitForm$ = fromEvent(this.form.nativeElement, 'submit');
+    //
+    // this.submitForm$.pipe(
+    //   tap(() => console.log('fromevent'))
+    // );
+  }
+
   onSubmitForm(devFormGroup: FormGroup): void {
     this.store.dispatch(new AddDevTeamMember({
       name: devFormGroup.controls.name.value,
@@ -47,8 +61,11 @@ export class DashboardContainerComponent {
     }));
   }
 
-
   onAnimStart() {
-    console.log('start');
+    console.log('animation start');
+  }
+
+  onAnimEnded() {
+    console.log('animation ended');
   }
 }

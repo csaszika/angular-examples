@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {GenericElementRef} from '../../app-main/types/generic-element-ref';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-angular-elements-container',
@@ -8,7 +7,7 @@ import {GenericElementRef} from '../../app-main/types/generic-element-ref';
 })
 export class AngularElementsContainerComponent implements OnInit {
 
-  @ViewChild('cardsContainer') container: GenericElementRef<HTMLElement>;
+  @ViewChild('cardsContainer', { read: HTMLElement }) container: ElementRef;
 
   ngOnInit() {
 
