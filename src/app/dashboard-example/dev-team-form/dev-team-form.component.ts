@@ -1,8 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {DevTeamMemberForm} from './dev-team-member.form';
-import {Observable} from 'rxjs';
-import {debounceTime, filter} from 'rxjs/operators';
+import {debounceTime} from 'rxjs/operators';
+import {filterByFormValidity} from '../../../shared/custom-operators/form-validity.operator';
+import {logger} from '../../../shared/custom-operators/logger.operator';
 
 @Component({
   selector: 'dev-team-form',
@@ -20,10 +21,9 @@ export class DevTeamFormComponent implements OnInit {
 
     this.devFormGroup.valueChanges.pipe(
       debounceTime(500),
-      filterByValidity(this.devFormGroup),
-    ).subscribe((value) => {
-      console.log(value);
-    });
+      logger(),
+      filterByFormValidity(this.devFormGroup),
+    ).subscribe();
   }
 
   onSubmit(): void {
@@ -32,6 +32,3 @@ export class DevTeamFormComponent implements OnInit {
   }
 
 }
-
-export const filterByValidity = (form: FormGroup) =>
-  (source: Observable<object>) => source.pipe(filter(() => form.valid));

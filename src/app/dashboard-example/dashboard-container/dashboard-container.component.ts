@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team.reducer';
-import {dashboardItemsAnim} from '../../app-main/animations/list.animations';
+import {dashboardItemsAnim} from '../../../shared/animations/list.animations';
 import {fromEvent, Observable} from 'rxjs';
 import {
   selectAllDevTeamMembers,

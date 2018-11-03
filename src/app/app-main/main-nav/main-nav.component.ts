@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {BreakpointObserver, Breakpoints, BreakpointState} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
-import {routerTransition} from '../animations/routing.animations';
+import {routerTransition} from '../../../shared/animations/routing.animations';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({

@@ -4,7 +4,7 @@ import {DevTeamTableDataSource} from './dev-team-table-datasource';
 import {Store} from '@ngrx/store';
 import {DevTeamState} from '../ngrx-feature-core/reducers/dev-team/dev-team.reducer';
 import {selectAllDevTeamMembers} from '../ngrx-feature-core/reducers/dev-team/selectors';
-import {datatableRowsAnim} from '../../app-main/animations/list.animations';
+import {datatableRowsAnim} from '../../../shared/animations/list.animations';
 import {DevTeamMember} from '../types/dev-team';
 import {SelectionModel} from '@angular/cdk/collections';
 
