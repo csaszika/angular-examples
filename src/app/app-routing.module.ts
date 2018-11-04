@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {ShellComponent} from './app-main/shell/shell.component';
-import {HomeComponent} from './app-main/home/home.component';
-import {PageNotFoundComponent} from './app-main/page-not-found/page-not-found.component';
+import {ShellComponent} from './app-core/shell/shell.component';
+import {HomeComponent} from './app-core/home/home.component';
+import {PageNotFoundComponent} from './app-core/page-not-found/page-not-found.component';
 
 
 const appRoutes: Routes = [
