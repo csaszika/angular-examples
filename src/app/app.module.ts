@@ -18,6 +18,7 @@ import {environment} from '../environments/environment';
 import {AngularExamplesLibraryModule} from 'angular-examples-library';
 import {EffectsModule} from '@ngrx/effects';
 import {HttpClientModule} from '@angular/common/http';
+import { PresentPropDecoratorsComponent } from './app-core/present-prop-decorators/present-prop-decorators.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
     MainNavComponent,
     HomeComponent,
     PageNotFoundComponent,
-    ShellComponent
+    ShellComponent,
+    PresentPropDecoratorsComponent
   ],
   imports: [
     BrowserModule,
