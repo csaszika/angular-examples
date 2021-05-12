@@ -34,7 +34,7 @@
     "@ngrx/store": "^6.0.1",
     "@ngrx/store-devtools": "^6.0.1",
     "@webcomponents/custom-elements": "^1.1.2",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "core-js": "^2.5.7",
     "ngrx-store-localstorage": "^5.1.0",
     "node-sass": "^4.13.1",
